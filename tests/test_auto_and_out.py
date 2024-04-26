@@ -10,8 +10,8 @@ import allure
 @pytest.mark.functional
 @allure.description('Проверка авторизации и выход')
 @allure.severity(allure.severity_level.CRITICAL)
-def test_authorization_and_out(browser):  # Тест проверяет авторизацию на сайте по email и выходит из аккаунта
-    smart_food = Smart_food(browser)
+def test_authorization_and_out(browser_headless):  # Тест проверяет авторизацию на сайте по email и выходит из аккаунта
+    smart_food = Smart_food(browser_headless)
     smart_food.visit()
 
     smart_food.register_button.click()
@@ -25,7 +25,7 @@ def test_authorization_and_out(browser):  # Тест проверяет авто
     cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
     assert cabinet_menu_button_title == "Павел"
     smart_food.cabinet_menu_button_quit.click()
-    browser.refresh()
+    browser_headless.refresh()
     cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
     assert cabinet_menu_button_title != "Павел"
 

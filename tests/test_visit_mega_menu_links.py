@@ -8,8 +8,8 @@ import allure
 @pytest.mark.smoke
 @allure.description('Проверка авторизации и выход')
 @allure.severity(allure.severity_level.NORMAL)
-def test_mega_menu_buttons(browser):
-    smart_food = Smart_food(browser)
+def test_mega_menu_buttons(browser_headless):
+    smart_food = Smart_food(browser_headless)
     smart_food.visit()
 
     links = [
