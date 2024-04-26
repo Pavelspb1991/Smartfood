@@ -23,6 +23,8 @@ jobs:
          run: sudo apt-get install google-chrome-stable
        - name: install dependencies
          run: pip install -r requirements.txt
+       - name: Install pytest-allure
+         run: pip install pytest-allure
        - name: Run tests
          run: pytest Smartfood/tests --alluredir=allure-results
            
