@@ -1,12 +1,13 @@
 import pytest
-from selenium.webdriver.chrome.options import Options
-
 from pages.smart_food import Smart_food
 import time
+import allure
 
 
 # Проверка кликабельности кнопок мега-меню
 @pytest.mark.smoke
+@allure.description('Проверка авторизации и выход')
+@allure.severity(allure.severity_level.NORMAL)
 def test_mega_menu_buttons(browser):
     smart_food = Smart_food(browser)
     smart_food.visit()

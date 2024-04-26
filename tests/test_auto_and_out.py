@@ -1,16 +1,15 @@
 import pytest
-from selenium.webdriver import Keys
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.common.action_chains import ActionChains
 from pages.registration_page import Registration
 from pages.smart_food import Smart_food
 import time
 from config import EMAIL
 from config import PASSWORD
+import allure
 
 
 @pytest.mark.functional
+@allure.description('Проверка авторизации и выход')
+@allure.severity(allure.severity_level.CRITICAL)
 def test_authorization_and_out(browser):  # Тест проверяет авторизацию на сайте по email и выходит из аккаунта
     smart_food = Smart_food(browser)
     smart_food.visit()
