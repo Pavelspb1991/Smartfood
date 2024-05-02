@@ -40,5 +40,8 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
 
+      - name: Set up Allure
+        uses: simple-elf/install-allure-action@master
+
       - name: Serve allure report
         run: allure serve allure-results
