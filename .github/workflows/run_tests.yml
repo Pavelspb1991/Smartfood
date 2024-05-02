@@ -38,10 +38,12 @@ jobs:
 
       - name: Install Allure
         run: |
-            mkdir -p /usr/local/lib/allure
-            wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.23.0/allure-commandline-2.23.0.tgz
-            tar -zxvf allure-commandline-2.23.0.tgz -C /usr/local/lib/allure --strip-components=1
-            echo "/usr/local/lib/allure/bin" >> $GITHUB_PATH
+          ALLURE_VERSION=2.23.0
+          ALLURE_DIR="/home/runner/.allure"
+          mkdir -p "$ALLURE_DIR"
+          wget "https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.tgz"
+          tar -zxvf "allure-commandline-${ALLURE_VERSION}.tgz" -C "$ALLURE_DIR" --strip-components=1
+          echo "$ALLURE_DIR/bin" >> $GITHUB_PATH
 
       - name: Run tests
         run: |
