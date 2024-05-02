@@ -36,15 +36,18 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - name: Install Allure
+        run: |
+            mkdir -p /usr/local/lib/allure
+            wget https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.23.0/allure-commandline-2.23.0.tgz
+            tar -zxvf allure-commandline-2.23.0.tgz -C /usr/local/lib/allure --strip-components=1
+            echo "/usr/local/lib/allure/bin" >> $GITHUB_PATH
+
       - name: Run tests
         run: |
           cd tests
           pytest --alluredir=allure-results
 
-      - name: Find Allure path
-        run: |
-          allure_path=$(which allure)
-          echo "::set-output name=allure_path::$allure_path"
 
       - name: Serve allure report
         run: |
