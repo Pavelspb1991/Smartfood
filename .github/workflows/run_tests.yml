@@ -41,10 +41,15 @@ jobs:
           cd tests
           pytest --alluredir=allure-results
 
+      - name: Find Allure path
+        run: |
+          allure_path=$(which allure)
+          echo "::set-output name=allure_path::$allure_path"
+
       - name: Serve allure report
         run: |
           cd tests
-          allure serve allure-results
+          ${{ steps.find_allure.outputs.allure_path }} serve allure-results
 
       - name: Get Allure history
         uses: actions/checkout@v2
