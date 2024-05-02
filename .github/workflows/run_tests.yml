@@ -24,7 +24,7 @@ jobs:
        - name: install dependencies
          run: pip install -r requirements.txt
        - name: Install pytest-allure
-         run: pip install pytest-allure
+         run: pip install allure-pytest
        - name: Run tests
          run: pytest Smartfood/tests --alluredir=allure-results
            
