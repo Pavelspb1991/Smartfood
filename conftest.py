@@ -13,7 +13,8 @@ def browser():
 @pytest.fixture(scope="session")
 def browser_headless():
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
+    options.add_argument("--headless=new")
     driver = webdriver.Chrome(options=options)
+    driver.set_window_size(1500, 1100)
     yield driver
     driver.quit()
