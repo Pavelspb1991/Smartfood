@@ -43,4 +43,4 @@ jobs:
       - name: Serve allure report
         run: |
           cd tests
-          /usr/bin/allure serve allure-results || true  
+          /usr/bin/allure serve allure-results
