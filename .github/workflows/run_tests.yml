@@ -50,42 +50,18 @@ jobs:
           cd tests
           pytest --alluredir=allure-results
 
-
-      - name: Serve allure report
+      - name: Generate Allure report
         run: |
-          cd tests
-          ${{ steps.find_allure.outputs.allure_path }} serve allure-results
+          allure generate allure-results --clean
 
-      - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Allure Report action from marketplace
-        uses: simple-elf/allure-report-action@master
-        if: always()
-        with:
-          allure_results: allure-results
-          gh_pages: gh-pages
-          allure_report: allure-report
-          allure_history: allure-history
-
-      - name: Deploy report to Github Pages
-        if: always()
+      - name: Deploy Allure report
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: gh-pages/allure-history
+          publish_dir: allure-report
 
-      - name: Post the link to the report
-        if: always()
-        uses: Sibz/github-status-action@v1
-        with:
-          authToken: ${{ secrets.GITHUB_TOKEN }}
-          context: 'Test report'
-          state: 'success'
-          sha: ${{ github.event.pull_request.head.sha || github.sha }}
-          target_url: ${{ 'https://Pavelspb1991.github.io/Smartfood/allure-history/${{ github.run_id }}' }}
+      - name: Get Allure report URL
+        run: |
+          allure_host_url="https://${{ github.actor }}.github.io/${{ github.repository }}"
+          allure_url="${allure_host_url}/${GITHUB_REF##*/}"
+          echo "Allure Report URL: ${allure_url}"
