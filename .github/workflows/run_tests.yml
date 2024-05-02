@@ -1,5 +1,5 @@
-
 name: Automated tests
+
 on:
   workflow_dispatch:
     inputs:
@@ -15,19 +15,20 @@ jobs:
      steps:
        - name: Checkout repository
          uses: actions/checkout@v3
-       - name: setup Python
+       - name: Setup Python
          uses: actions/setup-python@v4
          with:
            python-version: '3.11.5'
        - name: Install Chrome
          run: sudo apt-get install google-chrome-stable
-       - name: install dependencies
-         run: pip install -r requirements.txt
-       - name: Install pytest-allure
-         run: pip install allure-pytest
+       - name: Install dependencies
+         run: |
+           pip install -r requirements.txt
+           pip install allure-pytest
        - name: Run tests
-         run: pytest Smartfood/tests --alluredir=allure-results
-           
+         run: |
+           cd tests
+           pytest --alluredir=allure-results
 
 
 
