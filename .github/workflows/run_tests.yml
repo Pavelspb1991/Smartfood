@@ -10,8 +10,6 @@ on:
 
 jobs:
   test:
-    env:
-      PYTEST_WORKDIR: ./tests
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +31,6 @@ jobs:
           pip install allure-pytest
 
       - name: Run tests
-        working-directory: ${{ env.PYTEST_WORKDIR }}
         run: |
           cd tests
           pytest --alluredir=allure-results
@@ -45,5 +42,6 @@ jobs:
           distribution: 'temurin'
 
       - name: Serve allure report
-        working-directory: ${{ env.PYTEST_WORKDIR }}
-        run: allure serve allure-results
+        run: |
+          cd tests
+          allure serve allure-results
