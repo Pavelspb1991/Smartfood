@@ -56,12 +56,11 @@ jobs:
           pytest --alluredir=allure-results
 
       - name: Get Allure history
-        uses: actions/checkout@v2
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
+        run: |
+          git checkout --orphan gh-pages
+          git rm -rf .
+          git clean -fd
+          mkdir -p gh-pages/allure-history
 
       - name: Generate Allure report
         if: always()
