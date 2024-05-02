@@ -30,10 +30,16 @@ jobs:
           pip install -r requirements.txt
           pip install allure-pytest
 
+      - name: Install Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
       - name: Install Allure
         run: |
           sudo apt-get update
-          sudo apt-get install -y allure || true
+          sudo apt-get install -y allure 
 
       - name: Run tests
         run: |
