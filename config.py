@@ -1,2 +1,2 @@
-EMAIL = 'sn0oze@mail.ru'
-PASSWORD = 'Pavelsmart19910707'
+EMAIL = 'autotesting2024@mail.ru'
+PASSWORD = 'autotestsmartfood777'

@@ -22,11 +22,11 @@ def test_authorization_and_out(browser_headless):  # Тест проверяет
     time.sleep(1)
     smart_food.cabinet_menu_button.wait_and_hover()
     cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
-    assert cabinet_menu_button_title == "Павел"
+    assert cabinet_menu_button_title == "autotest testing"
     smart_food.cabinet_menu_button_quit.click()
     browser_headless.refresh()
     cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
-    assert cabinet_menu_button_title != "Павел"
+    assert cabinet_menu_button_title != "autotest testing"
 
 
 @pytest.mark.functional
