@@ -50,3 +50,7 @@ def test_registration(browser_headless):
     assert register.capcha.get_text() == ""
 
     time.sleep(1)
+
+
+def test_failed():
+    assert 1 == 2
