@@ -38,16 +38,14 @@ jobs:
       - name: Run tests
         run: |
           cd tests
-          pytest --alluredir=allure-results
+          pytest --alluredir=../allure-results
 
       - name: Store allure results
         uses: actions/upload-artifact@v3
         with:
           name: allure-results
-          path: allure-results
+          path: .
           retention-days: 1
-
-      - run: ls allure-results/  # Добавлена команда для проверки содержимого папки
 
   generate-report:
     runs-on: ubuntu-latest
@@ -62,9 +60,7 @@ jobs:
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v3
 
-      - run: ls allure-results/  # Добавлена команда для проверки содержимого папки
-
-      - run: allure generate -c allure-results/allure-results -o _site
+      - run: allure generate -c allure-results -o _site
       - name: Store generated report
         uses: actions/upload-artifact@v3
         with:
