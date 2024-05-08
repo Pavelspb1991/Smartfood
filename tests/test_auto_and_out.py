@@ -51,6 +51,7 @@ def test_registration(browser_headless):
 
     time.sleep(1)
 
-
+@allure.description('Проверка падения')
+@allure.severity(allure.severity_level.CRITICAL)
 def test_failed():
     assert 1 == 2
