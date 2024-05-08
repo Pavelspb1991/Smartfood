@@ -40,11 +40,12 @@ jobs:
           cd tests
           pytest --alluredir=../allure-results
 
+
       - name: Store allure results
         uses: actions/upload-artifact@v3
         with:
           name: allure-results
-          path: .
+          path: allure-results
           retention-days: 1
 
   generate-report:
