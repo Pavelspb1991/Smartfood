@@ -10,6 +10,7 @@ class Smart_food(BasePage):
     def __init__(self, driver):
         self.base_url = 'https://smart-food.shop/'
         super().__init__(driver, self.base_url)
+        # Блок с кнопками регистрации и мега-меню
         self.register_button = WebElement(driver, ".person > div:nth-child(1) > a:nth-child(1)")
         self.login_email_modal_autorization = WebElement(driver, ".nav > li:nth-child(2) > a:nth-child(1)")
         self.user_login_input = WebElement(driver, "#USER_LOGIN_POPUP")
@@ -27,7 +28,16 @@ class Smart_food(BasePage):
         self.brands_button = WebElement(driver, 'td:nth-child(5) > div > a')
         self.payments_shipping_button = WebElement(driver, "td:nth-child(6) > div > a")
         self.contacts_button = WebElement(driver, 'td:nth-child(7) > div > a')
-        self.registration_button = WebElement(driver,'div.line-block__item.width100 > a')
+        self.registration_button = WebElement(driver, 'div.line-block__item.width100 > a')
+        # Блок слайдер
+        self.slider_1 = WebElement(driver, '#bx_2875157043_9621 > a')
+        self.slider_1_img = WebElement(driver, '#bx_2875157043_9621 > div > table > tbody > tr > td > a > img')
+        self.slider_right_button = WebElement(driver, ' div > div.swiper-button-next')
+        self.slider_2 = WebElement(driver, '#bx_2875157043_9622 > a')
+        self.slider_3 = WebElement(driver, '#bx_2875157043_9574 > a')
+        self.slider_2_img = WebElement(driver, '#bx_2875157043_9622 > div > table > tbody > tr > td > a > img')
+        self.slider_3_img = WebElement(driver, '#bx_2875157043_9574 > div > table > tbody > tr > td > a > img')
+        self.slider_left_button = WebElement(driver, 'div > div.swiper-button-prev')
 
     def test_button_link(self, button, url):
         button.open_new_tab()

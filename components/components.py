@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
+import logging
 
 
 class WebElement:
@@ -88,7 +89,8 @@ class WebElement:
         return False
 
     def scroll_to_element(self):
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);", self.find_element())
+        element = self.find_element()
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
 
     def check_css(self, style, value=''):
         return self.find_element().value_of_css_property(style) == value
@@ -139,3 +141,9 @@ class WebElement:
     def get_selenium_webelement(self):
         return self.wait_for_element_clickable()
 
+    def alert(self):
+        try:
+            return self.driver.switch_to.alert
+        except Exception as ex:
+            logging.log(1, ex)
+            return False

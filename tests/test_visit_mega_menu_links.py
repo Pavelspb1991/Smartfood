@@ -6,7 +6,7 @@ import allure
 
 # Проверка кликабельности кнопок мега-меню
 @pytest.mark.smoke
-@allure.description('Проверка авторизации и выход')
+@allure.description('Проверка кликабельности кнопок мега-меню (зеленые) и переход по ним')
 @allure.severity(allure.severity_level.NORMAL)
 def test_mega_menu_buttons(browser_headless):
     smart_food = Smart_food(browser_headless)
