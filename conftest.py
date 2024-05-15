@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+import time
 
 
 @pytest.fixture(scope="session")
@@ -18,3 +19,9 @@ def browser_headless():
     driver.set_window_size(1500, 1100)
     yield driver
     driver.quit()
+
+
+@pytest.fixture(autouse=True)
+def delay_between_tests():
+    yield
+    time.sleep(2)
