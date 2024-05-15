@@ -13,6 +13,7 @@ import allure
 def test_authorization_and_out(browser_headless):  # Тест проверяет авторизацию на сайте по email и выходит из аккаунта
     smart_food = Smart_food(browser_headless)
     smart_food.visit()
+    time.sleep(2)
     with allure.step('Авторизация'):
         smart_food.register_button.click_force()
         smart_food.login_email_modal_autorization.wait_and_click()
@@ -42,6 +43,7 @@ def test_registration(browser_headless):
     register = Registration(browser_headless)
 
     smart_food.visit()
+    time.sleep(2)
     with allure.step('Нажать на кнопку регистрации'):
         smart_food.register_button.click()
         time.sleep(1)
