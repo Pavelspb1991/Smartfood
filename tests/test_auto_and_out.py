@@ -71,4 +71,3 @@ def test_slider(browser_headless):
     smart_food.slider_left_button.click_force()
     time.sleep(1)
     assert smart_food.slider_2_img.visible()
-
