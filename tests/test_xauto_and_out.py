@@ -19,6 +19,7 @@ def test_authorization_and_out(browser_headless):  # Тест проверяет
         smart_food.user_login_input.send_keys(EMAIL)
         smart_food.user_password_input.send_keys(PASSWORD)
     smart_food.user_label_zapomnit_menya.wait_and_click()
+    time.sleep(1)
     smart_food.user_login_button.wait_and_click()
     time.sleep(1)
     with allure.step('Выход'):
@@ -26,6 +27,7 @@ def test_authorization_and_out(browser_headless):  # Тест проверяет
         cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
         assert cabinet_menu_button_title == "autotest testing"
         smart_food.cabinet_menu_button_quit.click_force()
+    time.sleep(1)
     with allure.step('Проверка выхода'):
         browser_headless.refresh()
         cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
@@ -40,16 +42,19 @@ def test_registration(browser_headless):
     register = Registration(browser_headless)
 
     smart_food.visit()
-    smart_food.register_button.click()
-    smart_food.registration_button.wait_and_click()
+    with allure.step('Нажать на кнопку регистрации'):
+        smart_food.register_button.click()
+        time.sleep(1)
+        smart_food.registration_button.wait_and_click()
     assert smart_food.get_url() == 'https://smart-food.shop/auth/registration/?register=yes&backurl=/'
-    register.input_name.send_keys('Тест')
-    register.input_email.send_keys('xx@xx.xx')
-    register.input_phone.send_keys('1111111111')
-    register.input_password.send_keys('123456')
-    register.confirm_password.send_keys('123456')
-    register.capcha.send_keys('123456')
-    time.sleep(1)
+    with allure.step('Заполнить форму регистрации'):
+        register.input_name.send_keys('Тест')
+        register.input_email.send_keys('xx@xx.xx')
+        register.input_phone.send_keys('1111111111')
+        register.input_password.send_keys('123456')
+        register.confirm_password.send_keys('123456')
+        register.capcha.send_keys('123456')
+        time.sleep(2)
     register.capcha_refresh.click_force()
     time.sleep(1)
     assert register.capcha.get_text() == ""
