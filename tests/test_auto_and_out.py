@@ -33,7 +33,6 @@ def test_authorization(browser_headless):  # Тест проверяет авт�
         cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
         assert cabinet_menu_button_title != "autotest testing"
 
-
 @allure.description('Проверка регистрации')
 @allure.severity(allure.severity_level.CRITICAL)
 def test_register(browser_headless):
