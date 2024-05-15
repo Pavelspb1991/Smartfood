@@ -8,8 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class Smart_food(BasePage):
 
     def __init__(self, driver):
-        self.base_url = 'https://smart-food.shop/'
-        super().__init__(driver, self.base_url)
+        super().__init__(driver, 'https://smart-food.shop/catalog/dobavki-dlya-sportsmenov/proteiny/syvorotochnyy-protein/')
         # Блок с кнопками регистрации и мега-меню
         self.register_button = WebElement(driver, ".person > div:nth-child(1) > a:nth-child(1)")
         self.login_email_modal_autorization = WebElement(driver, ".nav > li:nth-child(2) > a:nth-child(1)")

@@ -6,8 +6,8 @@ import pytest
 
 @allure.description('Проверка  добавления и удаления товаров 2 товаров из сравнения')
 @allure.severity(allure.severity_level.NORMAL)
-def test_compare_button(browser):
-    protein_page = Protein_page(browser)
+def test_compare_button(browser_headless):
+    protein_page = Protein_page(browser_headless)
     protein_page.visit()
     protein_page.card_compare.exist()
     protein_page.card_compare.wait_and_hover()
@@ -86,11 +86,12 @@ def test_checkbox_compare(browser_headless):
 def test_add_card_to_compare(browser_headless):
     protein_page = Protein_page(browser_headless)
     protein_page.visit()
-    protein_page.card_compare.exist()
+    protein_page.card_compare.wait_for_element_clickable()
     with allure.step('Нажать на кнопку добавления товаров в сравнение'):
         protein_page.card_compare.wait_and_hover()
         protein_page.compare_button.click()
     protein_page.refresh()
+    time.sleep(1)
     protein_page.compare_menu.click()
     with allure.step('Нажать на кнопку добавления карточки в сравнение из меню сравнения'):
         protein_page.add_card_in_menu_compare_button.click()

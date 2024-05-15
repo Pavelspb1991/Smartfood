@@ -8,7 +8,7 @@ import requests
 
 class BasePage:
 
-    def __init__(self, driver, base_url):
+    def __init__(self, driver, base_url=None):
         self.driver = driver
         self.base_url = base_url
         self.meta = WebElement(driver, "head>meta[name = 'viewport']")

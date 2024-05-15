@@ -8,8 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class Registration(BasePage):
 
     def __init__(self, driver):
-        self.base_url = 'https://smart-food.shop/'
-        super().__init__(driver, self.base_url)
+        super().__init__(driver, 'https://smart-food.shop/')
         self.input_name = WebElement(driver, '#input_NAME')
         self.input_email = WebElement(driver, "#input_EMAIL")
         self.input_phone = WebElement(driver, "#input_PERSONAL_PHONE")

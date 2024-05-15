@@ -6,8 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 class Protein_page(BasePage):
 
     def __init__(self, driver):
-        self.base_url = 'https://smart-food.shop/catalog/dobavki-dlya-sportsmenov/proteiny/syvorotochnyy-protein/'
-        super().__init__(driver, self.base_url)
+        super().__init__(driver, 'https://smart-food.shop/catalog/dobavki-dlya-sportsmenov/proteiny/syvorotochnyy-protein/')
         # Блок с кнопкапи сравнить, отложить и корзина
         self.card_compare = WebElement(driver,
                                        'div.catalog_block.items.row.margin0.has-bottom-nav.js_append.ajax_load.block.flexbox > div:nth-child(1)')
