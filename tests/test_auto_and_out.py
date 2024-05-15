@@ -9,7 +9,7 @@ import allure
 
 @allure.description('Проверка авторизации и выход')
 @allure.severity(allure.severity_level.CRITICAL)
-def test_authorization_and_out(browser_headless):  # Тест проверяет авторизацию на сайте по email и выходит из аккаунта
+def test_authorization(browser_headless):  # Тест проверяет авторизацию на сайте по email и выходит из аккаунта
     smart_food = Smart_food(browser_headless)
     smart_food.visit()
     time.sleep(2)
@@ -36,7 +36,7 @@ def test_authorization_and_out(browser_headless):  # Тест проверяет
 
 @allure.description('Проверка регистрации')
 @allure.severity(allure.severity_level.CRITICAL)
-def test_registration(browser_headless):
+def test_register(browser_headless):
     smart_food = Smart_food(browser_headless)
     register = Registration(browser_headless)
 
