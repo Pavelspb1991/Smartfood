@@ -30,7 +30,7 @@ def test_order_and_cancel(browser_headless):
     with allure.step('Меню оформления заказа'):
         order.order_from_store_evrika_button.wait_and_click()
         order.select_store_evrika.wait_and_hover()
-        order.select_store_evrika.click()
+        order.select_store_evrika.click_force()
         assert order.payment_method.exist()
     with allure.step('Выбор метода оплаты'):
         order.payment_method.scroll_to_element()
@@ -45,10 +45,10 @@ def test_order_and_cancel(browser_headless):
     with allure.step('Отмена заказа из личного кабинета'):
         browser_headless.get('https://smart-food.shop/personal/orders/')
         order.cancel_order_button.wait_and_hover()
-        order.cancel_order_button.click()
+        order.cancel_order_button.click_force()
         order.cancel_order_area_input.wait_and_hover()
         order.cancel_order_area_input.send_keys('Тестирование сайта! Отмените заказ!')
-        order.cancel_order_final_button.click()
+        order.cancel_order_final_button.click_force()
     time.sleep(2)
     with allure.step('Проверка того,что заказы отменены'):
         order.orders_not_found_text.wait_for_element_visible()
