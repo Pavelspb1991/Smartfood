@@ -13,7 +13,7 @@ import allure
 def test_authorization_and_out(browser_headless):  # Тест проверяет авторизацию на сайте по email и выходит из аккаунта
     smart_food = Smart_food(browser_headless)
     smart_food.visit()
-    smart_food.register_button.click()
+    smart_food.register_button.click_force()
     smart_food.login_email_modal_autorization.wait_and_click()
     smart_food.user_login_input.send_keys(EMAIL)
     smart_food.user_password_input.send_keys(PASSWORD)
@@ -23,7 +23,7 @@ def test_authorization_and_out(browser_headless):  # Тест проверяет
     smart_food.cabinet_menu_button.wait_and_hover()
     cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
     assert cabinet_menu_button_title == "autotest testing"
-    smart_food.cabinet_menu_button_quit.click()
+    smart_food.cabinet_menu_button_quit.click_force()
     browser_headless.refresh()
     cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
     assert cabinet_menu_button_title != "autotest testing"
@@ -47,7 +47,7 @@ def test_registration(browser_headless):
     register.confirm_password.send_keys('123456')
     register.capcha.send_keys('123456')
     time.sleep(1)
-    register.capcha_refresh.click()
+    register.capcha_refresh.click_force()
     time.sleep(1)
     assert register.capcha.get_text() == ""
 

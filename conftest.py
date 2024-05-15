@@ -24,4 +24,4 @@ def browser_headless():
 @pytest.fixture(autouse=True)
 def delay_between_tests():
     yield
-    time.sleep(2)
+    time.sleep(4)
