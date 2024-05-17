@@ -83,6 +83,12 @@ class Order(BasePage):
         self.add_to_favorite_2_button = WebElement(driver, '(//div/div[2]/div[1]/div[1]/span)[10]', 'xpath')
         self.favorite_menu_count = WebElement(driver, ' div > div:nth-child(3) > a > span > span.count.js-count')
         self.delete_all_favorite_button = WebElement(driver, ' div.topic > div > div > div')
+        # селекторы моблиьной версии
+        self.register_button_mobile = WebElement(driver,
+                                                 'div.right-icons.pull-right > div:nth-child(2) > div > div > a')
+        self.login_email_modal_aut_mobile = WebElement(driver, '//*[@id="auth-page-form"]/div[1]/div/div[1]/ul/li[2]/a',
+                                                       'xpath')
+
 
 
 
