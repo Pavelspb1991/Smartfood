@@ -11,3 +11,4 @@ import pytest
 def test_add_favorite_and_delete(browser_headless):
     order = Order(browser_headless)
     order.visit()
+

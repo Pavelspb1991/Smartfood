@@ -18,9 +18,9 @@ def test_authorization(browser_headless):  # Тест проверяет авт�
         smart_food.login_email_modal_autorization.wait_and_click_force()
         smart_food.user_login_input.send_keys(EMAIL)
         smart_food.user_password_input.send_keys(PASSWORD)
-    smart_food.user_label_zapomnit_menya.wait_and_click_force()
-    time.sleep(1)
-    smart_food.user_login_button.wait_and_click_force()
+        smart_food.user_label_zapomnit_menya.wait_and_click_force()
+        time.sleep(1)
+        smart_food.user_login_button.wait_and_click_force()
     time.sleep(1)
     with allure.step('Выход'):
         smart_food.cabinet_menu_button.wait_and_hover()
