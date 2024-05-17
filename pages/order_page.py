@@ -77,6 +77,9 @@ class Order(BasePage):
         self.cancel_order_area_input = WebElement(driver, 'form > textarea')
         self.cancel_order_final_button = WebElement(driver, ' input[type=submit]:nth-child(12)')
         self.orders_not_found_text = WebElement(driver, 'div > h3')
+        # Блок для добавления товаров в избранное
+        self.favorite_button = WebElement(driver, 'div.right-icons.wb.header__top-item > div > div:nth-child(3) > a > span')
+
 
 
 

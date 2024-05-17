@@ -13,7 +13,7 @@ class WebElement:
         self.driver = driver
         self.locator = locator
         self.locator_type = locator_type
-        self.wait = WebDriverWait(self.driver, 15)
+        self.wait = WebDriverWait(self.driver, 30)
 
     def find_element(self):
         return self.driver.find_element(self.get_by_type(), self.locator)
