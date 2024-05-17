@@ -9,7 +9,7 @@ class Smart_food(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver, 'https://smart-food.shop/')
-        # Блок с кнопками регистрации и мега-меню
+        # Блок с кнопками регистрации и мега-меню в дес
         self.register_button = WebElement(driver, ".person > div:nth-child(1) > a:nth-child(1)")
         self.login_email_modal_autorization = WebElement(driver, ".nav > li:nth-child(2) > a:nth-child(1)")
         self.user_login_input = WebElement(driver, "#USER_LOGIN_POPUP")
@@ -37,6 +37,9 @@ class Smart_food(BasePage):
         self.slider_2_img = WebElement(driver, '#bx_2875157043_9622 > div > table > tbody > tr > td > a > img')
         self.slider_3_img = WebElement(driver, '#bx_2875157043_9574 > div > table > tbody > tr > td > a > img')
         self.slider_left_button = WebElement(driver, 'div > div.swiper-button-prev')
+        # проверка работы кнопок в мобильной версии
+        self.register_button_modile = WebElement(driver, 'div.right-icons.pull-right > div:nth-child(2) > div > div > a')
+
 
     def test_button_link(self, button, url):
         button.open_new_tab()

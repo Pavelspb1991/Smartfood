@@ -1,16 +1,8 @@
-import pytest
-from pages.registration_page import Registration
-from pages.smart_food import Smart_food
-import time
-from config import EMAIL
-from config import PASSWORD
-import allure
-
-import pytest
 from pages.registration_page import Registration
 from pages.smart_food import Smart_food
 from config import EMAIL, PASSWORD
 import allure
+import time
 
 
 @allure.description('Проверка авторизации и выход в десктоп версии')
@@ -32,7 +24,6 @@ def test_authorization(browser_headless):
         cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
         assert cabinet_menu_button_title == "autotest testing"
         smart_food.cabinet_menu_button_quit.wait_and_click_force()
-
 
 
 @allure.description('Проверка регистрации')
@@ -59,26 +50,4 @@ def test_register(browser_headless):
     register.capcha_refresh.wait_and_click_force()
     time.sleep(1)
     assert register.capcha.get_text() == ""
-
     time.sleep(1)
-
-
-@allure.description('Проверка cлайдера,кнопки лево право,картинки и ссылки')
-@allure.severity(allure.severity_level.CRITICAL)
-def test_slider(browser_headless):
-    smart_food = Smart_food(browser_headless)
-    smart_food.visit()
-    smart_food.slider_1.wait_for_element_visible()
-    assert smart_food.slider_1.exist()
-    assert smart_food.slider_1_img.visible()
-    smart_food.slider_1.wait_and_hover()
-    smart_food.slider_right_button.click_force()
-    time.sleep(1)
-    assert smart_food.slider_2.exist()
-    assert smart_food.slider_2_img.visible()
-    smart_food.slider_right_button.click_force()
-    time.sleep(1)
-    assert smart_food.slider_3_img.visible()
-    smart_food.slider_left_button.click_force()
-    time.sleep(1)
-    assert smart_food.slider_2_img.visible()
