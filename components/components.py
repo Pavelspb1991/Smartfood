@@ -13,7 +13,7 @@ class WebElement:
         self.driver = driver
         self.locator = locator
         self.locator_type = locator_type
-        self.wait = WebDriverWait(self.driver, 10)
+        self.wait = WebDriverWait(self.driver, 15)
 
     def find_element(self):
         return self.driver.find_element(self.get_by_type(), self.locator)
@@ -147,3 +147,7 @@ class WebElement:
         except Exception as ex:
             logging.log(1, ex)
             return False
+
+    def wait_and_click_force(self):
+        self.wait.until(EC.element_to_be_clickable((self.get_by_type(), self.locator)))
+        self.click_force()
