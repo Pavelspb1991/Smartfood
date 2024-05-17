@@ -6,34 +6,6 @@ from config import EMAIL
 from config import PASSWORD
 import allure
 
-import pytest
-from pages.registration_page import Registration
-from pages.smart_food import Smart_food
-from config import EMAIL, PASSWORD
-import allure
-
-
-@allure.description('Проверка авторизации и выход в десктоп версии')
-@allure.severity(allure.severity_level.CRITICAL)
-def test_authorization(browser_headless):
-    smart_food = Smart_food(browser_headless)
-    smart_food.visit()
-
-    with allure.step('Авторизация'):
-        smart_food.register_button.wait_and_click_force()
-        smart_food.login_email_modal_autorization.wait_and_click_force()
-        smart_food.user_login_input.send_keys(EMAIL)
-        smart_food.user_password_input.send_keys(PASSWORD)
-        smart_food.user_label_zapomnit_menya.wait_and_click_force()
-        smart_food.user_login_button.wait_and_click_force()
-
-    with allure.step('Выход'):
-        smart_food.cabinet_menu_button.wait_and_hover()
-        cabinet_menu_button_title = smart_food.cabinet_menu_button.get_dom_attribute("Title")
-        assert cabinet_menu_button_title == "autotest testing"
-        smart_food.cabinet_menu_button_quit.wait_and_click_force()
-
-
 
 @allure.description('Проверка регистрации')
 @allure.severity(allure.severity_level.CRITICAL)
@@ -59,8 +31,6 @@ def test_register(browser_headless):
     register.capcha_refresh.wait_and_click_force()
     time.sleep(1)
     assert register.capcha.get_text() == ""
-
-    time.sleep(1)
 
 
 @allure.description('Проверка cлайдера,кнопки лево право,картинки и ссылки')

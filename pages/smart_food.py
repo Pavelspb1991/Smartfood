@@ -38,7 +38,8 @@ class Smart_food(BasePage):
         self.slider_3_img = WebElement(driver, '#bx_2875157043_9574 > div > table > tbody > tr > td > a > img')
         self.slider_left_button = WebElement(driver, 'div > div.swiper-button-prev')
         # проверка работы кнопок в мобильной версии
-        self.register_button_modile = WebElement(driver, 'div.right-icons.pull-right > div:nth-child(2) > div > div > a')
+        self.register_button_mobile = WebElement(driver, 'div.right-icons.pull-right > div:nth-child(2) > div > div > a')
+        self.login_email_modal_aut_mobile = WebElement(driver, '//*[@id="auth-page-form"]/div[1]/div/div[1]/ul/li[2]/a', 'xpath')
 
 
     def test_button_link(self, button, url):
