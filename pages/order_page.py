@@ -79,6 +79,11 @@ class Order(BasePage):
         self.orders_not_found_text = WebElement(driver, 'div > h3')
         # Блок для добавления товаров в избранное
         self.favorite_button = WebElement(driver, 'div.right-icons.wb.header__top-item > div > div:nth-child(3) > a > span')
+        self.add_to_favorite_button = WebElement(driver, '(//div/div[2]/div[1]/div[1]/span)[9]', 'xpath')
+        self.add_to_favorite_2_button = WebElement(driver, '(//div/div[2]/div[1]/div[1]/span)[10]', 'xpath')
+        self.favorite_menu_count = WebElement(driver, ' div > div:nth-child(3) > a > span > span.count.js-count')
+        self.delete_all_favorite_button = WebElement(driver, ' div.topic > div > div > div')
+
 
 
 
