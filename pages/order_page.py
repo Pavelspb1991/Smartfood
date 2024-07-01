@@ -89,6 +89,12 @@ class Order(BasePage):
         self.login_email_modal_aut_mobile = WebElement(driver, '//*[@id="auth-page-form"]/div[1]/div/div[1]/ul/li[2]/a',
                                                        'xpath')
 
+        self.search_input_mobile_button = WebElement(driver, 'div:nth-child(3) > div > button')
+        self.search_input_mobile_input = WebElement(driver, '#title-search-input')
+        self.text_catalog = WebElement(driver, '#pagetitle')
+
+
+
 
 
 
