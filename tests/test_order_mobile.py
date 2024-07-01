@@ -4,7 +4,10 @@ from config import EMAIL, PASSWORD
 import allure
 import time
 
+import os
 
+email = os.getenv('TEST_EMAIL')
+password = os.getenv('TEST_PASSWORD')
 @allure.description('Проверка авторизации и выход в десктоп версии')
 @allure.severity(allure.severity_level.CRITICAL)
 def test_order_mobile(browser_mobile_headless):

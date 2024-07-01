@@ -2,7 +2,10 @@ import pytest
 from pages.smart_food import Smart_food
 import time
 import allure
+import os
 
+email = os.getenv('TEST_EMAIL')
+password = os.getenv('TEST_PASSWORD')
 
 # Проверка кликабельности кнопок мега-меню
 @pytest.mark.smoke

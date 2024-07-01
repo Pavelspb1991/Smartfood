@@ -39,6 +39,9 @@ jobs:
         run: |
           cd tests
           pytest --alluredir=../allure-results
+        env:
+          TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
         continue-on-error: true
 
       - name: Store allure results

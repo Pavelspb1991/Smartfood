@@ -3,6 +3,10 @@ from pages.order_page import Order
 import time
 import allure
 import pytest
+import os
+
+email = os.getenv('TEST_EMAIL')
+password = os.getenv('TEST_PASSWORD')
 
 
 @pytest.mark.functional
@@ -53,10 +57,3 @@ def test_order_and_cancel(browser_headless):
     with allure.step('Проверка того,что заказы отменены'):
         order.orders_not_found_text.wait_for_element_visible()
         assert order.orders_not_found_text.get_text() == 'Текущие заказы не найдены'
-
-
-
-
-
-
-

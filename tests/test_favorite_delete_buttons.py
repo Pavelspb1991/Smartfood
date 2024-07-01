@@ -3,7 +3,10 @@ from pages.order_page import Order
 import time
 import allure
 import pytest
+import os
 
+email = os.getenv('TEST_EMAIL')
+password = os.getenv('TEST_PASSWORD')
 
 @pytest.mark.functional
 @allure.description('Добавление товара в избранное и его удаление')

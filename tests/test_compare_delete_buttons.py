@@ -3,7 +3,10 @@ import time
 import allure
 import pytest
 
+import os
 
+email = os.getenv('TEST_EMAIL')
+password = os.getenv('TEST_PASSWORD')
 @allure.description('Проверка  добавления и удаления товаров 2 товаров из сравнения')
 @allure.severity(allure.severity_level.NORMAL)
 def test_compare_button(browser_headless):

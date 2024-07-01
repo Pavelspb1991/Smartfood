@@ -5,6 +5,10 @@ import time
 from config import EMAIL
 from config import PASSWORD
 import allure
+import os
+
+email = os.getenv('TEST_EMAIL')
+password = os.getenv('TEST_PASSWORD')
 
 
 @allure.description('Проверка cлайдера,кнопки лево право,картинки и ссылки')

@@ -6,6 +6,11 @@ from config import EMAIL, PASSWORD
 import allure
 import time
 
+import os
+
+email = os.getenv('TEST_EMAIL')
+password = os.getenv('TEST_PASSWORD')
+
 
 @allure.description('Проверка поиска при пустов поле поиска и нажатие enter')
 @allure.severity(allure.severity_level.CRITICAL)
