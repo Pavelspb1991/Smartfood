@@ -11,7 +11,7 @@ email = os.getenv('TEST_EMAIL')
 password = os.getenv('TEST_PASSWORD')
 
 
-@allure.description('Проверка cлайдера,кнопки лево право,картинки и ссылки')
+@allure.description('Проверка cлайдера,кнопки лево право,картинки и ссылк')
 @allure.severity(allure.severity_level.CRITICAL)
 def test_slider(browser_headless):
     smart_food = Smart_food(browser_headless)
